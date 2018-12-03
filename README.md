@@ -8,7 +8,8 @@
 ![debug-todo-list-mvc-app](assets/screenshot.png)
 
 1. <a href="#started">Getting Started</a>
-2. <a href="#works">How it Works ?</a>
+2. <a href="#use">How to Use ?</a>
+3. <a href="#works">How it Works ?</a>
     - <a href="#app-js">app.js</a>
     - <a href="#store-js">store.js</a>
     - <a href="#model-js">model.js</a>
@@ -16,8 +17,10 @@
     - <a href="#controller-js">controller.js</a>
     - <a href="#template-js">template.js</a>
     - <a href="#helpers-js">helpers.js</a>
-3. <a href="#jasmine">Launch Jasmine tests ?</a>
+4. <a href="#jasmine">Launch Jasmine tests</a>
 
+<br/>
+<br/>
 <a name="started" />
 
 ## Getting Started - Development
@@ -27,9 +30,51 @@
 git clone https://github.com/AlexBth86/debug-todo-list-mvc-app.git
 ```
 
+<br/>
+<br/>
+<a name="use" />
+
+## How to Use ?
+
+### Edit a Todo :
+
+Double click to edit a Todo
+<br/>![debug-todo-list-mvc-app](assets/edit-todo.png)
+
+### Delete a Todo :
+
+Click on the closing cross that appears on the mouseover :
+![debug-todo-list-mvc-app](assets/cross.png)
+
+### Toggle a Todo to « Completed » :
+
+For complete a Todo, click here :
+![debug-todo-list-mvc-app](assets/complete-todo-1.png)![debug-todo-list-mvc-app](assets/complete-todo-2.png)
+
+### Toggle all Todos to « Completed » :
+
+For complete all the actives todos, click on the arrow :
+![debug-todo-list-mvc-app](assets/toggle-all.png)
+
+### Filter your Todos :
+
+Three views are proposed:
+- All
+- Active
+- Completed
+Use the navigation bar at the bottom of the list to toggle views
+
+<br/>![debug-todo-list-mvc-app](assets/nav-todo.png)
+
+### Empty the list of completed Todos :
+
+Use the "clear completed" button in the nav bar
+
+<br/>
+<br/>
 <a name="works" />
 
-## How it Works
+## How it Works ?
 
 "Todos" is based on a MVC architectural pattern and use VanillaJS.
 
@@ -72,25 +117,25 @@ function Store(name, callback) {
 Store.prototype.find
 ```
 
-- For retrieve all data from the collection use :
+- To retrieve all data from the collection use :
 
 ```
 Store.prototype.findAll
 ```
 
-- For save the given data to the DB. If no item exists it will create a new item, otherwise it'll simply update an existing item's properties
+- To save the given data to the DB. If no item exists it will create a new item, otherwise it'll simply update an existing item's properties
 
 ```
 Store.prototype.save
 ```
 
-- For remove an item from the Store based on its ID
+- To remove an item from the Store based on its ID
 
 ```
 Store.prototype.remove
 ```
 
-- For drop all storage and start fresh
+- To drop all storage and start fresh
 
 ```
 Store.prototype.drop
@@ -117,29 +162,29 @@ function Model(storage) {
 Model.prototype.create
 ```
 
-- For finds and returns a model in storage :
+- To finds and returns a model in storage :
 
 ```
 Model.prototype.read = function (query, callback) {...}
 ```
 
-- For updates a model by giving it an ID, data to update, and a callback to fire when the update is complete :
+- To updates a model by giving it an ID, data to update, and a callback to fire when the update is complete :
 
 ```
 Model.prototype.update
 ```
 
-- For removes a model from storage :
+- To removes a model from storage :
 ```
 Model.prototype.remove
 ```
 
-- For removes ALL data from storage :
+- To removes ALL data from storage :
 ```
 Model.prototype.removeAll
 ```
 
-- For returns a count of all todos :
+- To returns a count of all todos :
 ```
 Model.prototype.getCount
 ```
@@ -383,7 +428,7 @@ Example :
     });
 ```
 
-- For displays a counter of how many to dos are left to complete :
+- To displays a counter of how many to dos are left to complete :
   - param {number} activeTodos The number of active todos.
   - returns {string} String containing the count
 
@@ -391,7 +436,7 @@ Example :
 Template.prototype.itemCounter = function (activeTodos) {...};
 ```
 
-- For updates the text within the "Clear completed" button :
+- To updates the text within the "Clear completed" button :
   - param  {[type]} completedTodos The number of completed todos.
   - returns {string} String containing the count
 
@@ -406,7 +451,7 @@ Template.prototype.clearCompletedButton = function (completedTodos) {...};
 Several "helpers" have been defined to facilitate the development of the application.
 <br/>Among others, it will allows you to get a "CSS selectors", manage an "Event Listeners" or find a element's parent with the given tag name more efficiency.
 
-- For get element(s) by CSS selector :
+- To get element(s) by CSS selector :
 
 ```
 window.qs = function (selector, scope) {
@@ -430,19 +475,21 @@ window.$on = function (target, type, callback, useCapture) {
 };
 ```
 
-- For Attach a handler to event for all elements that match the selector, now or in the future, based on a root element :
+- To Attach a handler to event for all elements that match the selector, now or in the future, based on a root element :
 
 ```
 window.$delegate = function (target, selector, type, handler) {...};
 ```
 
-- For find the element's parent with the given tag name:
+- To find the element's parent with the given tag name:
 <br/>Example : $parent(qs('a'), 'div');
 
 ```
 window.$parent = function (element, tagName) {...};
 ```
 
+<br/>
+<br/>
 <a name="jasmine" />
 
 ## Launch Jasmine tests
@@ -453,7 +500,7 @@ Jasmine test core is used for testing this app and already install in the repo
 ```
 ./test/
 ```
-<br/>For configure tests please complete :
+<br/>To configure tests please complete :
 ```
 ControllerSpec.js
 ```
